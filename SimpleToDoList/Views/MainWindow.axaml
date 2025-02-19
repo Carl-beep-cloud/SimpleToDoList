@@ -45,9 +45,9 @@
 
 							<StackPanel Grid.Column="3" Margin="2">
 								<ComboBox SelectedIndex="0" MaxDropDownHeight="100">
-									<ComboBoxItem>Fail</ComboBoxItem>
-									<ComboBoxItem>Success</ComboBoxItem>
-									<ComboBoxItem >Skibidi dop dop</ComboBoxItem>
+									<ComboBoxItem Foreground="Red">Fail</ComboBoxItem>
+									<ComboBoxItem Foreground="Green">Success</ComboBoxItem>
+									<ComboBoxItem Foreground="Orange" >Skibidi dop dop</ComboBoxItem>
 									
 								</ComboBox>
 							</StackPanel>
