@@ -11,27 +11,50 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="SimpleToDoList">
 	<!-- We give a name to the root grid in order to access it later -->
-	<Grid RowDefinitions="Auto, *, Auto" Background="black" 
+	<Grid RowDefinitions="Auto,Auto, *, Auto" Background="black"
           x:Name="Root">
 
 		<!-- This is our title text block.  -->
-		<TextBlock Classes="h1" Text="My ToDo-List" Background="pink" />
-
-		<ScrollViewer Grid.Row="1" Background="orange">
-			<!-- This ItemsControl show all added ToDoItems. -->			<!-- It needs to be placed inside a ScrollViewer because other than a ListBox it has not its own -->
+		<TextBlock Grid.Row="0" Classes="h1" Text="Min Episka tränings lista" Background="pink" />
+		<Grid Grid.Row="1" ColumnDefinitions="2*, 1.25*, 1.25*, 0.67*, 0.44*" Margin="5">
+			<TextBlock Classes="underheader" Grid.Column="0">Exericise</TextBlock>
+			<TextBlock Classes="underheader" Grid.Column="1" >Weight</TextBlock>
+			<TextBlock Classes="underheader" Grid.Column="2" >Reps</TextBlock>
+			<TextBlock Classes="underheader" Grid.Column="3" >Result</TextBlock>
+			<TextBlock Classes="underheader"  Grid.Column="4">Delete</TextBlock>
+		</Grid>		   
+		<ScrollViewer Grid.Row="2" Background="" Margin="">
+			<!-- This ItemsControl show all added ToDoItems. -->
+			<!-- It needs to be placed inside a ScrollViewer because other than a ListBox it has not its own -->
 			<ItemsControl ItemsSource="{Binding ToDoItems}" >
 				<ItemsControl.ItemTemplate>
 					<!--  The ItemTemplate defines how each item should be represented  -->
 					<!--  Our Item will be represented by a CheckBox and a Delete-Button  -->
 					<DataTemplate DataType="vm:ToDoItemViewModel">
-						<Grid ColumnDefinitions="*, Auto"  Background="YellowGreen">
-							<CheckBox Content="{Binding Content}"
-									  IsChecked="{Binding IsChecked}" />
+						<Grid ColumnDefinitions="1.5*, 1*, 1*, 0.67*, 0.44*" Margin=""  Background="Gray">
 
+							<TextBlock Grid.Column="0" VerticalAlignment="Center"   FontWeight="Bold" Text="{Binding Content}"></TextBlock>
+							
+							<StackPanel Grid.Column="1" Margin="2">
+								<NumericUpDown Value="15" />
+							</StackPanel>
+
+							<StackPanel Grid.Column="2"  Margin="2">
+								<NumericUpDown Value="4" />
+							</StackPanel>
+
+							<StackPanel Grid.Column="3" Margin="2">
+								<ComboBox SelectedIndex="0" MaxDropDownHeight="100">
+									<ComboBoxItem>Fail</ComboBoxItem>
+									<ComboBoxItem>Success</ComboBoxItem>
+									<ComboBoxItem >Skibidi dop dop</ComboBoxItem>
+									
+								</ComboBox>
+							</StackPanel>
 							<!--  Note how we use the Root-Grid to get the MainViewModel here. As we use compiled bindings we have to cast the DataContext  -->
 							<Button Command="{Binding #Root.((vm:MainWindowViewModel)DataContext).RemoveItemCommand}" BorderBrush="green"
 									CommandParameter="{Binding .}"
-									Grid.Column="1">
+									Grid.Column="4">
 								Delete
 							</Button>
 						</Grid>
@@ -41,7 +64,7 @@
 		</ScrollViewer>
 
 		<!-- This TextBox can be used to add new ToDoItems -->
-		<TextBox Grid.Row="2"
+		<TextBox Grid.Row="3"
          Text="{Binding NewItemContent}"
          Watermark="Add a new Item">
 			<TextBox.InnerRightContent>

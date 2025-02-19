@@ -10,13 +10,20 @@
     </Application.DataTemplates>
   
     <Application.Styles>
-        <FluentTheme />
+        <SimpleTheme />
+		
+		
 		<Style Selector="TextBlock.h1">
 			<Setter Property="FontWeight" Value="Bold" />
 			<Setter Property="FontSize" Value="15" />
 			<Setter Property="Margin" Value="5" />
 		</Style>
 
+		<Style Selector="TextBlock.underheader">
+			<Setter Property="Foreground" Value="green"/>
+			<Setter Property="TextDecorations" Value="Underline"/>
+		</Style>
+		
 		<Style Selector="CheckBox">
 			<Setter Property="HorizontalAlignment" Value="Stretch" />
 		</Style>
