@@ -2,7 +2,10 @@
 
 namespace SimpleToDoList.ViewModels
 {
-    public class ViewModelBase : ObservableObject
+    public partial class ViewModelBase : ObservableObject
     {
+
+        [ObservableProperty]
+        private int? _Result;
     }
 }

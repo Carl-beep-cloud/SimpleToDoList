@@ -12,6 +12,14 @@ namespace SimpleToDoList.Models
 
         public string? Content { get; set; }
 
+        public int? WeightInt { get; set; }
+
+        public int? RepsInt { get; set; }
+
+        public int? Result { get; set; }
+
+        //   public string? Result { get; set; }
+
 
     }
 }

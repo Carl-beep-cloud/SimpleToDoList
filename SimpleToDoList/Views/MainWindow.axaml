@@ -36,15 +36,15 @@
 							<TextBlock Grid.Column="0" VerticalAlignment="Center"   FontWeight="Bold" Text="{Binding Content}"></TextBlock>
 							
 							<StackPanel Grid.Column="1" Margin="2">
-								<NumericUpDown Value="15" />
+								<NumericUpDown Value="{Binding Weight}" />
 							</StackPanel>
 
 							<StackPanel Grid.Column="2"  Margin="2">
-								<NumericUpDown Value="4" />
+								<NumericUpDown Value="{Binding Reps}" />
 							</StackPanel>
 
 							<StackPanel Grid.Column="3" Margin="2">
-								<ComboBox SelectedIndex="0" MaxDropDownHeight="100">
+								<ComboBox SelectedIndex="{Binding Result}" MaxDropDownHeight="100">
 									<ComboBoxItem Foreground="Red">Fail</ComboBoxItem>
 									<ComboBoxItem Foreground="Green">Success</ComboBoxItem>
 									<ComboBoxItem Foreground="Orange" >Skibidi dop dop</ComboBoxItem>

@@ -16,15 +16,30 @@ namespace SimpleToDoList.ViewModels
         [ObservableProperty]
         private string? _content;
 
+        [ObservableProperty]
+        private int? _Weight;
+
+        [ObservableProperty]
+        private int? _Reps;
+
         public ToDoItemViewModel()
         {
             // empty
+       
+            _Weight=5;
+            _Reps = 5;
+
+
         }
 
         public ToDoItemViewModel(ToDoItem item)
         {
             IsChecked = item.IsChecked;
             Content = item.Content;
+            Weight = item.WeightInt;
+            Reps = item.RepsInt;
+            Result = item.Result;
+            
         }
 
         public ToDoItem GetToDoItem()
@@ -32,7 +47,11 @@ namespace SimpleToDoList.ViewModels
             return new ToDoItem()
             {
                 IsChecked = this.IsChecked,
-                Content = this.Content
+                Content = this.Content,
+                WeightInt = this.Weight,
+                RepsInt = this.Reps,
+                Result = this.Result
+
             };
         }
 
