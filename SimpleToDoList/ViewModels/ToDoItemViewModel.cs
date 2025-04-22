@@ -24,7 +24,7 @@ namespace SimpleToDoList.ViewModels
 
         public ToDoItemViewModel()
         {
-            // empty
+            // empty blub
        
             _Weight=5;
             _Reps = 5;
